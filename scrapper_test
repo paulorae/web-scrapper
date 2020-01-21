@@ -1,0 +1,43 @@
+import requests
+import urllib.request
+import time
+from bs4 import BeautifulSoup
+
+url = 'http://paulorae.github.io'
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, 'html.parser')
+
+show_all = soup.findAll('a')
+print(len(show_all))
+print(show_all)
+
+
+# Testing 
+
+# if type_char == True:
+# 	show_all = soup.findAll(str(type_char))
+# 	print(show_all)
+
+
+# type_char = input("what tags of html?")
+
+# def char_return(tags=None):
+# 	if tags != None:
+# 		show_all = soup.findAll(tags)
+# 	return f"{show_all}"
+
+
+# char_return('p')
+
+# one_a_tag = soup.findAll('a')[3]
+# link = one_a_tag['href'] 
+# print(link)
+
+
+# for i in range(35, len(soup.findAll('a'))+1): 	#'a' tags are for links
+#     one_a_tag = soup.findAll('a')[i]
+#     link = one_a_tag['href']
+#     download_url = 'http://paulorae.github.io' + link
+#     urllib.request.urlretrieve(download_url,'./' + link[link.find('/paulorae') + 1:]) 
+#     time.sleep(1) 								
